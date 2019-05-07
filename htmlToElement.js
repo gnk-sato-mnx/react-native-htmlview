@@ -113,11 +113,6 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
             }
             break;
           case 'br':
-          case 'h1':
-          case 'h2':
-          case 'h3':
-          case 'h4':
-          case 'h5':
             linebreakAfter = opts.lineBreak;
             break;
           }
