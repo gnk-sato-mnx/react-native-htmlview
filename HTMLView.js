@@ -32,6 +32,7 @@ const baseStyles = StyleSheet.create({
 });
 
 const htmlToElementOptKeys = [
+  'listBreak',
   'lineBreak',
   'paragraphBreak',
   'bullet',
@@ -134,6 +135,7 @@ class HtmlView extends PureComponent {
 }
 
 HtmlView.propTypes = {
+  listBreak: PropTypes.string,
   addLineBreaks: PropTypes.bool,
   bullet: PropTypes.string,
   lineBreak: PropTypes.string,

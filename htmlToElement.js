@@ -6,6 +6,7 @@ import entities from 'entities';
 import AutoSizedImage from './AutoSizedImage';
 
 const defaultOpts = {
+  listBreak: '\n',
   lineBreak: '\n',
   paragraphBreak: '\n\n',
   bullet: '\u2022 ',
@@ -133,7 +134,7 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
             </TextComponent>);
           }
           if (opts.addLineBreaks && index < list.length - 1) {
-            linebreakAfter = opts.lineBreak;
+            linebreakAfter = opts.listBreak;
           }
         }
 
@@ -144,7 +145,7 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
             {...opts.nodeComponentProps}
             key={index}
             onPress={linkPressHandler}
-            style={!node.parent ? styles[node.name] : null}
+            style={!node.parent ? styles[node.name] : {...inheritedStyle(node.parent), ...styles[node.name]}}
             onLongPress={linkLongPressHandler}
           >
             {linebreakBefore}
